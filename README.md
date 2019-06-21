@@ -3,7 +3,7 @@
 SpreeAbandonedCarts
 ===================
 
-Take some action for abandoned (incompleted) carts.
+Take some action for abandoned carts.
 
 Override `Spree::Order#abandoned_cart_actions` with your logic.
 By default an email is sent, see `AbandonedCartMailer`.
