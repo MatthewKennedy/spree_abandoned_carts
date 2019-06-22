@@ -182,7 +182,7 @@
     </thead>
     <tbody>
     <% @orders.each do |order| %>
-      <tr data-hook="admin_orders_index_rows" class="state-<%= order.state.downcase %> <%= cycle('odd', 'even') %> <% if order.abandoned_cart_email_sent_at == nil %>abandoned-cart-email-sent<% end %>">
+      <tr data-hook="admin_orders_index_rows" class="state-<%= order.state.downcase %> <%= cycle('odd', 'even') %> <% if order.abandoned_cart_email_sent_at != nil %>abandoned-cart-email-sent<% end %>">
         <td>
           <%= order_time(@show_only_completed ? order.completed_at : order.created_at) %>
         </td>
