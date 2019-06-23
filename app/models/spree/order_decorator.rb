@@ -9,7 +9,11 @@ module Spree
            where("#{quoted_table_name}.updated_at < ?", limit_time) }
 
     scope :abandon_not_notified,
-      -> { abandoned.where(abandoned_cart_email_sent_at: nil) }
+      -> { order_age_limit = Time.current - SpreeAbandonedCarts::Config.abandoned_after_minutes.minutes
+
+           abandoned.
+           where("#{quoted_table_name}.created_at < ?", 2.days.ago).
+           where(abandoned_cart_email_sent_at: nil) }
 
     def abandoned_cart_actions
       AbandonedCartMailer.abandoned_cart_email(self).deliver_now
