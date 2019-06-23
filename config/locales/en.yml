@@ -2,4 +2,5 @@ en:
   spree:
     abandoned_cart_subject: Your Cart Is Waiting!
     abandoned_cart_greeting: There's Something In Your Cart.
+    abandoned_cart_button_text: Visit Store
     abandoned_cart_main_message: Would you like to compleate your purchse?
