@@ -17,7 +17,7 @@ Installation
 Add spree_abandoned_carts to your Gemfile:
 
 ```ruby
-gem 'spree_abandoned_carts', github: 'freego/spree_abandoned_carts', branch: 'X-X-stable'
+gem 'spree_abandoned_carts', github: 'matthewkennedy/spree_abandoned_carts'
 ```
 
 Bundle your dependencies and run the installation generator:
