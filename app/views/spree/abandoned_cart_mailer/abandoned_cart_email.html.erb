@@ -13,21 +13,38 @@
   </tr>
 </table>
 
-<table class="row header">
-  <tr>
-    <td>
-      <table class="container">
-        <tr>
-          <td class="wrapper last">
-            <table class="twelve columns">
-              <%= render collection: @order.line_items, partial: 'spree/shared/mailer_line_item', as: :line_item %>
-            </table>
-          </td>
-        </tr>
+<table class="table" style="margin-bottom:0px; font-size: 0.9em; border:none;">
+          <thead>
+            <tr class="active" data-hook="order_details_line_items_headers">
+              <th colspan="2"class="text-left"><%= Spree.t(:items) %></th>
+              <th class="total text-right" style="width:10%;"><%= Spree.t(:total) %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% order.line_items.each do |item| %>
+              <tr data-hook="order_details_line_item_row">
+                <td style="width: 4.1em;" class="text-left" data-hook="order_item_img">
+                  <% variant = item.variant %>
+                  <% if variant.images.length == 0 %>
+                    <%= image_tag product_image(variant.product) %>
+                  <% else %>
+                    <div class="checkout-product-image">
+                      <span class="product-thumbnail__quantity" aria-hidden="true"><%= item.quantity %></span>
+                      <%= image_tag(main_app.url_for(variant.images.first.url(:product)), alt: item.name) %>
+                    </div>
+                  <% end %>
+                </td>
+                <td class="text-left" data-hook="order_item_description">
+                  <%= item.name %>
+                  <%= "(" + item.variant.options_text + ")" unless item.variant.option_values.empty? %>
+                  <br>
+                  <%= item.single_money %>
+                </td>
+                <td data-hook="order_item_total" class="text-right" style="width:10%;"><%= item.display_amount %></td>
+              </tr>
+            <% end %>
+          </tbody>
       </table>
-    </td>
-  </tr>
-</table>
 
 <table class="button">
      <tr>
