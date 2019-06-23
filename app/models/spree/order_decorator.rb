@@ -6,7 +6,7 @@ module Spree
            incomplete.
            where('email IS NOT NULL').
            where("#{quoted_table_name}.item_total > 0").
-           where("#{quoted_table_name}.updated_at < ?", limit_time).limit(2) }
+           where("#{quoted_table_name}.updated_at < ?", limit_time).limit(50) }
 
     scope :abandon_not_notified,
       -> { abandoned.where(abandoned_cart_email_sent_at: nil) }
