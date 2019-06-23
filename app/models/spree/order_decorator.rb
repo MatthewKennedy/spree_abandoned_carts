@@ -10,8 +10,10 @@ module Spree
            where("#{quoted_table_name}.updated_at < ?", limit_time) }
 
     scope :abandon_not_notified,
-      -> { abandoned.
-           where("#{quoted_table_name}.created_at > ?", 2.days.ago).
+      -> { only_look_back = SpreeAbandonedCarts::Config.only_look_back
+
+           abandoned.
+           where("#{quoted_table_name}.created_at > ?", only_look_back).
            where(abandoned_cart_email_sent_at: nil) }
 
     def abandoned_cart_actions
