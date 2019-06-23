@@ -4,7 +4,7 @@
 
       <center>
         <h1 class="center">
-          H1 <%= Spree.t('abandoned_cart_greeting') %>
+          <%= Spree.t('abandoned_cart_greeting') %>
         </h1>
       </center>
 
@@ -13,19 +13,26 @@
   </tr>
 </table>
 
-<table>
+<table class="row header">
   <tr>
     <td>
-
-      <p class="lede">
-        Lo <%= Spree.t('abandoned_cart_greeting') %>
-      </p>
-
-      <p>
-        NE  <%= Spree.t('abandoned_cart_main_message') %>
-      </p>
-
+      <table class="container">
+        <tr>
+          <td class="wrapper last">
+            <table class="twelve columns">
+              <%= render collection: @order.line_items, partial: 'spree/shared/mailer_line_item', as: :line_item %>
+            </table>
+          </td>
+        </tr>
+      </table>
     </td>
-    <td class="expander"></td>
   </tr>
+</table>
+
+<table class="button">
+     <tr>
+       <td>
+         <a href="<%= spree.root_url %>/cart"><%= Spree.t('abandoned_cart_button_text') %></a>
+       </td>
+     </tr>
 </table>
