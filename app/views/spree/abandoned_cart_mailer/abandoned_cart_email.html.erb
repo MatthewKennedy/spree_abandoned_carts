@@ -1,2 +1,31 @@
-
-You have a cart 
+<table class="row header">
+  <tr>
+    <td>
+      <table class="container">
+        <tr>
+          <td class="wrapper last">
+            <table class="twelve columns">
+              <%= render collection: @order.line_items, partial: 'spree/shared/mailer_line_item', as: :line_item %>
+              <%= render 'spree/order_mailer/subtotal', order: @order %>
+              <% if @order.line_item_adjustments.exists? %>
+                <% if @order.all_adjustments.promotion.eligible.exists? %>
+                  <% @order.all_adjustments.promotion.eligible.group_by(&:label).each do |label, adjustments| %>
+                    <tr>
+                      <td class="six sub-columns">
+                        <%= Spree.t(:promotion) %> <%= label %>:
+                      </td>
+                      <td class="six sub-columns last right">
+                        <%= Spree::Money.new(adjustments.sum(&:amount), currency: @order.currency) %>
+                      </td>
+                    </tr>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td class="expander"></td>
+  </tr>
+</table>
