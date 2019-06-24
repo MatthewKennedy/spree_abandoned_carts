@@ -1,11 +1,11 @@
 <row>
   <columns>
-    <h1 class="text-center"><%= Spree.t('abandoned_cart_greeting') %></h1>
+    <h2><%= Spree.t('abandoned_cart_greeting') %></h2>
   </columns>
 </row>
 <row>
   <columns>
-    <a href="https://foundation.zurb.com/emails/docs/"><img class="main-img" width="548" src="https://cdn.worldabs.com/assets/images/in_your_cart.jpg" alt="image of and link to video on website"></a>
+    <a href="<%= spree.root_url %>"><img class="main-img" width="548" src="https://cdn.worldabs.com/assets/images/in_your_cart.jpg" alt="image of and link to video on website"></a>
   </columns>
 </row>
 <row>
