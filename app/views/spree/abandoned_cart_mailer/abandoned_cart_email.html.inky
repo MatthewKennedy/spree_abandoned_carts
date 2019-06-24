@@ -1,9 +1,8 @@
 <row>
   <columns>
-    <h1 class="center"><%= Spree.t('abandoned_cart_greeting') %></h1>
+    <h1 class="text-center"><%= Spree.t('abandoned_cart_greeting') %></h1>
   </columns>
 </row>
-<spacer size="20"></spacer>
 <row>
   <columns>
     <a href="https://foundation.zurb.com/emails/docs/"><img class="main-img" width="548" src="https://cdn.worldabs.com/assets/images/in_your_cart.jpg" alt="image of and link to video on website"></a>
@@ -14,4 +13,3 @@
     <button class="large expand" href="<%= spree.root_url %>"><%= Spree.t('abandoned_cart_button_text') %></button>
   </columns>
 </row>
-<spacer size="20"></spacer>
