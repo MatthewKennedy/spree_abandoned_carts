@@ -3,11 +3,20 @@
     <h2 class="text-center"><%= Spree.t('abandoned_cart_greeting') %></h2>
   </columns>
 </row>
+
 <row>
   <columns>
     <a href="<%= spree.root_url %>"><img class="main-img" width="548" src="https://cdn.worldabs.com/assets/images/in_your_cart.jpg" alt="<%= Spree::Store.current.name %>"></a>
   </columns>
 </row>
+
+<row>
+  <columns>
+    <h4 class="text-center"><%= Spree.t('abandoned_cart_tag_line') %></h4>
+    <p class="text-center"><%= Spree.t('saved_your_cart') %></p>
+  </columns>
+</row>
+
 <row>
   <columns>
     <button class="large expand" href="<%= spree.root_url %>"><%= Spree.t('abandoned_cart_button_text') %></button>
