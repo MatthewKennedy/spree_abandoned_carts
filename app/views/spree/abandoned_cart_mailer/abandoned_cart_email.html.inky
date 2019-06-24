@@ -1,6 +1,6 @@
 <row>
   <columns>
-    <h2><%= Spree.t('abandoned_cart_greeting') %></h2>
+    <h2 class="text-center"><%= Spree.t('abandoned_cart_greeting') %></h2>
   </columns>
 </row>
 <row>
